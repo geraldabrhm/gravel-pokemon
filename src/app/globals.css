@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+
+  html, body {
+    @apply max-w-full overflow-x-hidden
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold;
+  } 
+  
+  h4 {
+    @apply text-xl font-bold;
+  }
+  
+  h5 {
+    @apply text-lg font-bold
+  }
+  
+  input {
+    @apply focus:outline-none;
+  }
+  
+  label {
+    @apply uppercase text-secondary;
+  }
+  
+  input, select, textarea, button{
+    font-family:inherit;
+  }
+}
+
+@layer components {
+
+}
+
+@layer utilities {
+
+}
