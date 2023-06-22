@@ -1,20 +1,15 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { capitalizeFirstLetter } from "@/utils/TextUtil";
-
-const getPokemonDetail = async (pokeId: string) => {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`);
-    const pokemonDetail = await response.json();
-    return pokemonDetail;
-}
+import { getPokemonDetail } from "@/apis/PokemonAPI";
 
 const PokemonDetailPage = ({ params }: { params: { pokeId: string } }) => {
     const [pokemonDetail, setPokemonDetail] = useState<any>({});
     
     const tryCatchPokemon = () => {
-        const random = Math.floor(Math.random() * 2);
-        if(random === 0) {
+        const possibilityCatched = 0.7
+        const random = Math.random();
+        if(random < possibilityCatched) {
             alert("Pokemon escaped!");
             return;
         }
@@ -55,7 +50,7 @@ const PokemonDetailPage = ({ params }: { params: { pokeId: string } }) => {
     return (
         <div className="px-24 py-4 grid md:grid-cols-2 sm:grid-cols-1 gap-8">
             <section id="left-side" className="basis-1/2 flex flex-col gap-3">
-                <h3 className="py-4">{pokemonDetail.name ? capitalizeFirstLetter(pokemonDetail.name) : pokemonDetail.name}</h3>
+                <h3 className="py-4 capitalize">pokemonDetail.name</h3>
                 <div className="bg-tertiary rounded-full p-5 flex justify-center shadow-md">
                     <Image 
                         src={pokemonDetail.sprites?.other["official-artwork"].front_default}

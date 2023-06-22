@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Pokemon } from "@/types/Pokemon";
+import PokemonOwnedCard from "@/components/ui/PokemonOwnedCard";
 
 const pocketList = (): Pokemon[] => {
     const pocket = localStorage.getItem("pocket");
@@ -35,25 +35,11 @@ const PokemonOwnedPage = ({}) => {
     return(
         <div className="p-4">
             <h2 className="pb-4">Owned Pokemon</h2>
-            <section className="flex flex-col justify-start px-32 gap-2">
+            <section className="flex flex-col justify-start px-32 gap-2 min-w-fit">
                 {   
                     ownedPokemons.map((pokemon: Pokemon) => {
                         return (
-                            <div key={pokemon.id} className="bg-secondary p-3  rounded hover:bg-primary hover:text-white flex justify-between items-center shadow-md">
-                                <div className="flex flex-row justify-start items-center gap-4">
-                                    <Image
-                                        src={pokemon.imageSrc}
-                                        alt={`pokemon-${pokemon.name}`}
-                                        width={50}
-                                        height={50}
-                                        draggable={false}
-                                    />
-                                    <span>{pokemon.name}</span>
-                                </div>
-                                <div>
-                                    <button className="bg-red-500 px-2 py-1 rounded text-white hover:scale-110" onClick={() => releasePokemon(pokemon.id)}>Release</button>
-                                </div>
-                            </div>
+                            <PokemonOwnedCard pokemon={pokemon} handleRelease={() => releasePokemon(pokemon.id)} />
                         )
                     })
                 }

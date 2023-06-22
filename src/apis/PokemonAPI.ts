@@ -1,5 +1,11 @@
 import { Pokemon } from '../types/Pokemon';
 
+export const getPokemonDetail = async (pokeId: string) => {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeId}`);
+    const pokemonDetail = await response.json();
+    return pokemonDetail;
+}
+
 export const getPokemonList = async (page: number) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * 20}&limit=20`);
     const data = await response.json();
