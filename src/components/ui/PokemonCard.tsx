@@ -7,7 +7,7 @@ const PokemonCard = ({ pokemonItem }: { pokemonItem: Pokemon }) => {
     return (
         <div>
             <Link href={`/pokemon/${id}`}>
-                <div className="bg-tertiary rounded-md flex justify-center drop-shadow-md">
+                <div className="bg-tertiary rounded-md flex justify-center drop-shadow-md hover:bg-primary">
                     <Image src={imageSrc} alt="pokemon" width={200} height={200}/>
                 </div>
             </Link>

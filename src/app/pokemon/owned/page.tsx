@@ -39,7 +39,7 @@ const PokemonOwnedPage = ({}) => {
                 {   
                     ownedPokemons.map((pokemon: Pokemon) => {
                         return (
-                            <PokemonOwnedCard pokemon={pokemon} handleRelease={() => releasePokemon(pokemon.id)} />
+                            <PokemonOwnedCard key={pokemon.id} pokemon={pokemon} handleRelease={() => releasePokemon(pokemon.id)} />
                         )
                     })
                 }

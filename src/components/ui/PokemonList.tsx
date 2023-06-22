@@ -10,13 +10,17 @@ const PokemonList = ({ pokemonList, searchPrompt }: { pokemonList: Pokemon[], se
     })
 
     return(
-        <section id="pokemon-list" className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full gap-4 px-24">
-            { fragmentList }
+        <>
+            <section id="pokemon-list" className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full gap-4 px-24">
+                { fragmentList }
+            </section>
             {
                 fragmentList.length === 0 &&
-                <h4 className="text-center w-full">There is no pokemon with your search prompt in this page</h4>
+                <div className="w-full">
+                    <h4 className="text-center w-full">There is no pokemon with your search prompt in this page</h4>
+                </div>
             }
-        </section>
+        </>
     )
 }
 
